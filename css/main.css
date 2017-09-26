@@ -73,6 +73,7 @@ a {
 
 /*  <header>  */
 .header {
+	flex-shrink:0;
 	display:-webkit-flex;
 	display:-moz-flex;
 	display:-ms-flex;
@@ -89,6 +90,7 @@ a {
 
 /*  <nav>  */
 .nav {
+	flex-shrink:0;
 	height:52px;
 	color:#fff;
 	font-size:1.8rem;
@@ -131,10 +133,25 @@ a {
 /*  <contacts>  */
 .contacts {
 	position:relative;
-	height:411px;
 	color:#fff;
-	background:url(../i/contacts__bg.jpg) no-repeat center 0 / cover;
 }
+	.contacts__slide {
+		left:0 !important;
+		z-index:-1;
+		opacity:0;
+		width:100%;
+		transition:opacity .6s;
+	}
+	.contacts__slide.is-selected {
+		z-index:0;
+		opacity:1;
+	}
+		.contacts__slide img {
+			width:100%;
+		}
+		.contacts .flickity-slider {
+			transform:none !important;
+		}
 	.contacts__main {
 		display:-webkit-flex;
 		display:-moz-flex;
@@ -145,6 +162,7 @@ a {
 		align-items:center;
 		position:absolute;
 		right:0; bottom:0; left:0;
+		z-index:3;
 		background-color:rgba(0, 0, 0, .48);
 		padding:15px 36px 10px;
 	}
@@ -390,6 +408,7 @@ a {
 
 /*  <footer>  */
 .footer {
+	flex-shrink:0;
 	display:-webkit-flex;
 	display:-moz-flex;
 	display:-ms-flex;
@@ -570,8 +589,14 @@ a.btn {
 		.nav__item {
 			display:block;
 		}
+	.contacts__slide {
+		display:none;
+	}
 	.main {
 		padding-bottom:50px;
+	}
+	.buyer-notice {
+		padding:15px;
 	}
 	.contacts {
 		display:-webkit-flex;
@@ -627,9 +652,6 @@ a.btn {
 	}
 }
 @media screen and (max-width:500px) {
-	.contacts {
-		height:210px;
-	}
 		.contacts__main {
 			padding:15px 20px;
 		}
@@ -639,9 +661,6 @@ a.btn {
 				.contacts__address::before {
 					display:none;
 				}
-	.buyer-notice {
-		padding:15px;
-	}
 	.production-info::before {
 		display:none;
 	}

@@ -15,6 +15,13 @@
 			$('.nav__mobile--active').click(function(e) {
 				e.stopPropagation();
 			});
+		} else {
+			$('.js-slider').flickity({
+				cellSelector: '.contacts__slide',
+				autoPlay: 4000,
+				prevNextButtons: false,
+				pageDots: false,
+			});
 		}
 	});
 
