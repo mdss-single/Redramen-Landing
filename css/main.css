@@ -582,7 +582,7 @@ a.btn {
 		animation:fade .5s;
 		position:absolute;
 		top:52px; left:0;
-		z-index:3;
+		z-index:4;
 		width:180px;
 		background-color:#b21531;
 	}
